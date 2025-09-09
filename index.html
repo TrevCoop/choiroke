@@ -6,6 +6,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+<!-- this is frustrating... why isn't this working?
+
+<script type="text/javascript">
+    const yearSpan = document.querySelector('#currentYear');
+    const currentYear = new Date();
+    yearSpan.innerText = currentYear.getFullYear();
+</script>
+
+-->
+
 <style type="text/css">
     
     html {
@@ -70,33 +81,51 @@
         width: 100%;
     }
 
-
-    .sora-paragraph {
-        font-family: "Sora", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 800;
-        font-style: normal;
-    }
-
-    .orbitron-YourClassHere {
-        font-family: "Orbitron", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 500;
-        font-style: normal;
-    }
-
     p.tagline {
         font-family: "Orbitron", "Verdana", sans-serif;
         text-shadow: 0px 0px 18px darkcyan;
         margin-top: -2em;
-
     }
 
+    .collapsible {
+        background-color: hotpink;
+        color: black;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 1.5em;
+        font-family: "Orbitron", "Verdana", sans-serif;
+    }
+
+    .active, .collapsible:hover {
+        background-color: magenta;
+    }
+
+    .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #000;
+    }
 </style>
 </head>
 
 <body>
 <img src="choiroke_vi_heading.jpg">
+
+<!-- COLLAPSIBLE ANNOUNCEMENT - SEE SCRIPT AT BOTTOM OF PAGE -->
+<button type="button" class="collapsible"><p style="background-color:inherit;margin:0;font-family: Orbitron, Verdana, sans-serif;">Next choiroke is:<img src="lets_dance_2025.png" style="float: right; max-width: 250px; margin-top: 0.5em;"></p><br><p style="background-color:inherit;margin:0;">Sunday Sept 21</p>
+</button>
+<div class="content">
+  <p style="background-color:inherit;">The theme is 'songs about dancing' (an example might be 'Into the Groove' by Madonna) - find a song or two that gets us on our feet! <a href='mailto:sing@choiroke.ca'>Email us</a> your selection(s) along with a link to the karaoke YouTube track, and we'll find a spot for you in the lineup. See you Sunday the 21st at 2:30 sharp at Cedar Heritage Centre!</p>
+  <img src="">
+</div>
+<!-- END OF ANNOUNCEMENT -->
+
+
 <h1>Choiroke</h1>
 <p class="tagline">on Vancouver Island</p>
 <p class="paragraph">Singing together is fun and good for you, but it can also feel scary if we get too focused on our performance. Let's try to set aside perfectionism and focus on just having fun!</p>
@@ -116,11 +145,30 @@ Singing starts at 2:30 <em>sharp</em>, so aim to get there by 2:15. We have a ha
 
 <hr class="line1">
 <footer>
-    <p><small>Copyright &copy; 2025 | Contact: <a href='mailto:sing@choiroke.ca'>sing AT choiroke DOT ca</a> | Header image created in Vaporgram | Modified dolphin gif copyright &copy; Studio Comet, from the Jewelpet franchise by Sanrio / Sega Sammy Holdings</small></p>
+    <p><small>Copyright &copy; <span id="currentYear">2021</span> | Contact: <a href='mailto:sing@choiroke.ca'>sing AT choiroke DOT ca</a> | Header image created in Vaporgram | Modified dolphin gif copyright &copy; Studio Comet, from the Jewelpet franchise by Sanrio / Sega Sammy Holdings</small></p>
 </footer>
 
+<!-- THIS IS A COLLAPSIBLE ELEMENT -->
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 
 </body>
 </html> 
+
 
 
